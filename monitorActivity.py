@@ -41,8 +41,13 @@ def recordData(timestamp, mode, model):
                                                       
             
 if __name__ == '__main__':            
-    logs = ["1,2016-05-02 09:14:32, lat, long, 2, x", "4,2016-05-02 09:14:42, lat, long, 0, x", "5,2016-05-02 09:14:48, lat, long, 0, y", "10,2016-05-02 09:15:03, lat, long, 2, x"]
+    #logs = ["1,2016-05-02 09:14:32, lat, long, 2, x", "4,2016-05-02 09:14:42, lat, long, 0, x", "5,2016-05-02 09:14:48, lat, long, 0, y", "10,2016-05-02 09:15:03, lat, long, 2, x"]
     
+    file1 = open("logs.txt","r")
+    # And for reading use
+    logs = file1.readlines()
+    file1.close()
+
     for logEntry in logs:
         data = logEntry.split(",")
         recordData(data[1], data[4].strip(), data[5].strip())
